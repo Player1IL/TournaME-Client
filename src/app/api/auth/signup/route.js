@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import {validateDob, validateEmail, validatePasswords} from "src/app/utils/validation"
+import {validateDob, validateEmail, validatePasswords} from "src/app/utils/validation.js"
 
 export async function POST(request) {
     try {
