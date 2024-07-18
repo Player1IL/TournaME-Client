@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import Form from "@/app/pages/signin/form";
+import Form from "src/app/pages/signin/form";
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 
