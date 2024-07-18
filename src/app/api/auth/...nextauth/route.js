@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {compare} from "bcrypt";
-import {useRouter} from "next/navigation";
+//import {useRouter} from "next/navigation";
 
 const handler = NextAuth({
     provider: [CredentialsProvider({
@@ -16,7 +16,7 @@ const handler = NextAuth({
             password: {},
         },
         async authorize(credentials, req) {
-            const router = useRouter();
+            //const router = useRouter();
 
             // ^/*/^ - To be changed
             const res = await fetch("/your/endpoint", {
