@@ -1,8 +1,10 @@
 'use client'
 
 import styles from "./page.module.css";
+import {useRouter} from "next/navigation";
 
 export default function Form() {
+    const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -17,6 +19,14 @@ export default function Form() {
             }),
         });
         console.log(response);
+    }
+    const handleRedirect = (e)  =>{
+        e.preventDefault();
+        router.push('./signin/')
+    }
+    const handleRedirectHome = (e)  =>{
+        e.preventDefault();
+        router.push('../')
     }
     return (
         <div className={styles.container}>
@@ -40,7 +50,9 @@ export default function Form() {
                 <label htmlFor="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob" required/>
 
-                <button type="submit">Sign In</button>
+                <button type="submit">Create account</button>
+                <button onClick={handleRedirect}>Have account? Log in</button>
+                <button onClick={handleRedirectHome}>Home page</button>
             </form>
         </div>
     )
