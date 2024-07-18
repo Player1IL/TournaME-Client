@@ -2,8 +2,7 @@ import {hash} from "bcrypt";
 
 export async function validatePasswords(password, passwordRepeat) {
     if (password === passwordRepeat) {
-        const hashedPassword = await hash(password, 10);
-        return true
+        return await hash(password, 10)
     }
     return false
 }
