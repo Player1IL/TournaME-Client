@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import Form from "/form";
+import Form from "./form"
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 

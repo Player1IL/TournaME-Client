@@ -9,7 +9,7 @@ const handler = NextAuth({
             strategy: 'jwt',
         },
         pages: {
-          signIn: "@/pages/signin"
+          signIn: "./pages/signin"
         },
         credentials: {
             username: {},
