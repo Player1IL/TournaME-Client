@@ -7,7 +7,7 @@ import {useState} from "react";
 
 export default function Form() {
 
-    const [resName, setResName] = useState(null);
+    //const [resName, setResName] = useState(null);
 
     const router = useRouter();
     const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ export default function Form() {
         });
         const responseBody = await response.json();
         if (responseBody.status === true) {
-            setResName(responseBody.username);
+            //setResName(responseBody.username);
             router.push('../')
         }
 
