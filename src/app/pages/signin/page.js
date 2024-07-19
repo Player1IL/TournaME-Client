@@ -3,7 +3,7 @@ import Form from "./form"
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 
-export default async function SignIn() {
+export default function SignIn() {
     /*
     const session = await getServerSession()
     if (session) {
