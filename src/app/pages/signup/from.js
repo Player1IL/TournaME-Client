@@ -8,6 +8,8 @@ export default function Form() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
+
+        //fetch was "/api/auth/signup"
         const response = await fetch("/api/auth/signup", {
             method: "POST",
             body: JSON.stringify({

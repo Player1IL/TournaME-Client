@@ -1,36 +1,32 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {compare} from "bcrypt";
+import {signIn} from "next-auth/react";
 //import {useRouter} from "next/navigation";
 
 const handler = NextAuth({
-    provider: [CredentialsProvider({
-        session: {
-            strategy: 'jwt',
-        },
-        pages: {
-          signIn: "./pages/signin"
-        },
+    session: {
+        strategy: 'jwt',
+    },
+    pages: {
+        signIn: "./pages/signin"
+    },
+    provider: [
+        CredentialsProvider({
         credentials: {
             username: {},
             password: {},
         },
         async authorize(credentials, req) {
-            //const router = useRouter();
 
-            // ^/*/^ - To be changed
-            const res = await fetch("/your/endpoint", {
+            const response = await fetch('http://localhost:3124/login', {
                 method: 'POST',
-                body: JSON.stringify(credentials),
-                headers: { "Content-Type": "application/json" }
-            })
-            const user = await res.json()
-
-            // ^/*/^ If no error and we have user data, return it
-            if (res.ok && user) {
-                return user
-            }
-            // Return null if user data could not be retrieved
+                body: JSON.stringify({username : credentials?.username, password : credentials?.password}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log("response: " + JSON.stringify(response));
             return null
         }
     })]
