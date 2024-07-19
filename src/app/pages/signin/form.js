@@ -21,7 +21,7 @@ export default function Form() {
         });
         console.log(response);
          */
-        const response = await fetch('http://localhost:3124/login', {
+        const response = await fetch('https://tourname.onrender.com/login', {
             method: 'POST',
             body: JSON.stringify({username: formData.get("username"), password: formData.get("password")}),
             headers: {
