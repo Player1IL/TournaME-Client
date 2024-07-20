@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './About.module.css';
+import Navbar from '../../components/Navbar';
 
 export default function About() {
     return (
@@ -8,7 +9,12 @@ export default function About() {
                 <title>About</title>
             </Head>
 
-            <div>Welcome to TournaME project of team 10 in SCE! <br/> The team members are :   </div>
+            <div>Welcome to TournaME website of team 10 in SCE!
+                <br/> Team members are :
+                <br/> Daniel Nekludov, Almog Bar, Gal Deri, Ran Deri, Hodaya Dahan, Shir Sabag, Efrat Jamil
+                <br/> Check out the GitHub @ github.com/Player1IL/TournaME-Client
+                <br/>
+            </div>
 
         </div>
     );

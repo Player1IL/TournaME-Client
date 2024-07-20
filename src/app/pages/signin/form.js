@@ -33,7 +33,6 @@ export default function Form() {
             //setResName(responseBody.username);
             router.push('../')
         }
-
         console.log("response & redirect: ", responseBody);
 
     };
