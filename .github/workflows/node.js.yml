@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
@@ -17,7 +14,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
@@ -30,13 +26,9 @@ jobs:
     - run: npm run build --if-present
     # - run: npm test
     - name: Trigger deployment
-      # uses: sws2apps/render-deployment@main #consider using pin for dependabot auto update
-      # with:
-      #   serviceId: ${{ secrets.RENDER_SERVICE_ID }}
-      #   apiKey: ${{ secrets.RENDER_API_KEY }}
-      #   multipleDeployment: false #optional, default true
+
       env:
-          deploy_url: https://api.render.com/deploy/srv-cqchd3uehbks738g7sig?key=9yVFQCDIBJw
+          deploy_url: $RENDER_DEPLOY_HOOK
       run: |
           curl "$deploy_url"
 
