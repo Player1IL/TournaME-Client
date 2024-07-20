@@ -1,7 +1,7 @@
 // pages/index.js
 import Head from 'next/head';
-import Navbar from '../../components/Navbar';
-import styles from '../../components/Home.module.css';
+import Navbar from './components/Navbar';
+import styles from './components/Home.module.css';
 
 export default function Home() {
     return (
@@ -15,10 +15,10 @@ export default function Home() {
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Welcome to My TournaME Homepage
+                    Welcome to TournaME
                 </h1>
                 <p className={styles.description}>
-                    This is the Homepage of our project, Hope you have a fun time browsing
+                    Create and Join tournaments of your favorite games and interact with millions of users
                 </p>
             </main>
         </div>
