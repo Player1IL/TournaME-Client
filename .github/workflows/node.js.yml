@@ -30,11 +30,16 @@ jobs:
     - run: npm run build --if-present
     # - run: npm test
     - name: Trigger deployment
-      uses: sws2apps/render-deployment@main #consider using pin for dependabot auto update
-      with:
-        serviceId: ${{ secrets.RENDER_SERVICE_ID }}
-        apiKey: ${{ secrets.RENDER_API_KEY }}
-        multipleDeployment: false #optional, default true
+      # uses: sws2apps/render-deployment@main #consider using pin for dependabot auto update
+      # with:
+      #   serviceId: ${{ secrets.RENDER_SERVICE_ID }}
+      #   apiKey: ${{ secrets.RENDER_API_KEY }}
+      #   multipleDeployment: false #optional, default true
+      env:
+          deploy_url: https://api.render.com/deploy/srv-cqchd3uehbks738g7sig?key=9yVFQCDIBJw
+      run: |
+          curl "$deploy_url"
+
 
     
     # - name: Deploy to production
