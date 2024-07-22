@@ -17,8 +17,9 @@ export default function Form() {
         Change fetch accordingly:
             Local: http://localhost:3124/signin
             Deploy: https://tourname.onrender.com/signin
+            Dev: https://tourname-server-side-dev.onrender.com/signin
         */
-        const response = await fetch('https://tourname.onrender.com/signin', {
+        const response = await fetch('https://tourname-server-side-dev.onrender.com/signin', {
             method: 'POST',
             body: JSON.stringify({
                 email: formData.get("email"),
