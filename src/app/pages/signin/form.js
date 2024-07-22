@@ -14,27 +14,24 @@ export default function Form() {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         /*
-        const response = await signIn('credentials', {
-            username: formData.get("username"),
-            password: formData.get("password"),
-            redirect: false
-        });
-        console.log(response);
-         */
-        const response = await fetch('https://tourname.onrender.com/login', {
+        Change fetch accordingly:
+            Local: http://localhost:3124/signin
+            Deploy: https://tourname.onrender.com/signin
+        */
+        const response = await fetch('https://tourname.onrender.com/signin', {
             method: 'POST',
-            body: JSON.stringify({username: formData.get("username"), password: formData.get("password")}),
+            body: JSON.stringify({
+                email: formData.get("email"),
+                password: formData.get("password")
+            }),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        const responseBody = await response.json();
-        if (responseBody.status === true) {
-            //setResName(responseBody.username);
-            router.push('../')
-        }
-        console.log("response & redirect: ", responseBody);
+        response.status === 400 && alert("Incorrect Email or password");
+        response.status === 200 && router.push("../");
 
+        console.log(response);
     };
     const handleRedirectCreate = (e) => {
         e.preventDefault();
@@ -50,8 +47,8 @@ export default function Form() {
                 <form onSubmit={handleSubmit} className={styles.form}>
                     <h2>Log in</h2>
 
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" required/>
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" id="email" name="email" required/>
 
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" required/>
