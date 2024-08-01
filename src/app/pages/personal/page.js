@@ -1,19 +1,41 @@
+// src/app/pages/personal/personal.js
 import Head from 'next/head';
 import Navbar from '../../../../components/Navbar';
+import styles from './Personal.module.css';
+import Link from 'next/link';
 
-export default function Personal() {
+const Personal = ({ children }) => {
     return (
         <div>
             <Head>
-                <title>Personal</title>
+                <title>Personal Area</title>
             </Head>
 
             <Navbar />
 
-            <main>
-                <h1>Personal Page</h1>
-                <p>This is the personal page.</p>
-            </main>
+            <div className={styles.container}>
+                <nav className={styles.sidebar}>
+                    <ul className={styles.sidebarLinks}>
+                        <li>
+                            <Link href="/personal/settings/change-password" className={styles.sidebarLink}>
+                                Change Password
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/personal/settings/account-info" className={styles.sidebarLink}>
+                                Account Info
+                            </Link>
+                        </li>
+                        {/* Add more links as needed */}
+                    </ul>
+                </nav>
+
+                <main className={styles.mainContent}>
+                    {children}
+                </main>
+            </div>
         </div>
     );
-}
+};
+
+export default Personal;

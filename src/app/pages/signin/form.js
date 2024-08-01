@@ -12,8 +12,11 @@ export default function Form() {
         const response = await signIn('credentials', {
             username: formData.get("username"),
             password: formData.get("password"),
-            redirect: false
+            redirect: router.push('../');
         });
+
+
+
         console.log(response);
     };
     const handleRedirectCreate = (e)  =>{
