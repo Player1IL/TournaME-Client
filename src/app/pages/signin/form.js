@@ -12,7 +12,7 @@ export default function Form() {
         const response = await signIn('credentials', {
             username: formData.get("username"),
             password: formData.get("password"),
-            redirect: router.push('../');
+            redirect: router.push('../'),
         });
 
 

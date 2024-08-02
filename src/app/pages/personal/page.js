@@ -1,10 +1,19 @@
-// src/app/pages/personal/personal.js
+// src/app/pages/personal/page.js
+"use client";
+
+import { useState } from 'react';
 import Head from 'next/head';
 import Navbar from '../../../../components/Navbar';
 import styles from './Personal.module.css';
-import Link from 'next/link';
+import AccountInfo from './settings/account-info';
+import ChangePassword from './settings/change-password';
+import Followers from './settings/followers';
+import Activity from './settings/activity';
+import FriendList from './settings/friend-list';
 
-const Personal = ({ children }) => {
+const Personal = () => {
+    const [selectedSection, setSelectedSection] = useState('account-info');
+
     return (
         <div>
             <Head>
@@ -17,21 +26,54 @@ const Personal = ({ children }) => {
                 <nav className={styles.sidebar}>
                     <ul className={styles.sidebarLinks}>
                         <li>
-                            <Link href="/personal/settings/change-password" className={styles.sidebarLink}>
+                            <a
+                                className={styles.sidebarLink}
+                                onClick={() => setSelectedSection('change-password')}
+                            >
                                 Change Password
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link href="/personal/settings/account-info" className={styles.sidebarLink}>
+                            <a
+                                className={styles.sidebarLink}
+                                onClick={() => setSelectedSection('account-info')}
+                            >
                                 Account Info
-                            </Link>
+                            </a>
                         </li>
-                        {/* Add more links as needed */}
+                        <li>
+                            <a
+                                className={styles.sidebarLink}
+                                onClick={() => setSelectedSection('followers')}
+                            >
+                                Followers
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className={styles.sidebarLink}
+                                onClick={() => setSelectedSection('activity')}
+                            >
+                                Activity
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className={styles.sidebarLink}
+                                onClick={() => setSelectedSection('friend-list')}
+                            >
+                                Friend List
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
                 <main className={styles.mainContent}>
-                    {children}
+                    {selectedSection === 'change-password' && <ChangePassword />}
+                    {selectedSection === 'account-info' && <AccountInfo />}
+                    {selectedSection === 'followers' && <Followers />}
+                    {selectedSection === 'activity' && <Activity />}
+                    {selectedSection === 'friend-list' && <FriendList />}
                 </main>
             </div>
         </div>

@@ -1,0 +1,49 @@
+/* src/app/home/Home.module.css */
+.container {
+    padding: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.box {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer; /* Added cursor pointer for better UX */
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.boxTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.boxViewers {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.tags {
+    margin-top: 0.5rem;
+}
+
+.tag {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+}

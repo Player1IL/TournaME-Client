@@ -21,7 +21,11 @@ const Navbar = () => {
                         About
                     </Link>
                 </li>
-
+                <li>
+                    <Link href="/pages/personal" className={styles.navLink}>
+                        Personal Area
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
