@@ -16,6 +16,9 @@ const GamePage = () => {
     const [newPostContent, setNewPostContent] = useState('');
     const [isAddingPost, setIsAddingPost] = useState(false);
     const [tournamentSize, setTournamentSize] = useState(8); // Default tournament size
+    const [newPostStatus, setNewPostStatus] = useState('Open'); // Default status
+    const [filter, setFilter] = useState('date'); // Default filter is 'date'
+    const [filterValue, setFilterValue] = useState(''); // State for filter value
 
     useEffect(() => {
         // Load posts from localStorage
@@ -25,6 +28,14 @@ const GamePage = () => {
 
     const posts = allPosts[game] || [];
 
+    const generateRandomUsername = () => {
+        const adjectives = ['Cool', 'Smart', 'Fast', 'Brave', 'Mighty'];
+        const nouns = ['Lion', 'Tiger', 'Eagle', 'Shark', 'Dragon'];
+        const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+        const noun = nouns[Math.floor(Math.random() * nouns.length)];
+        return `${adjective}${noun}${Math.floor(Math.random() * 100)}`;
+    };
+
     const handleAddPost = () => {
         const newPost = {
             id: posts.length + 1,
@@ -32,6 +43,9 @@ const GamePage = () => {
             content: newPostContent,
             participants: 0,
             maxParticipants: tournamentSize,
+            status: newPostStatus,
+            date: new Date().toLocaleDateString(), // Add the date here
+            user: generateRandomUsername() // Add the random username
         };
         const updatedPosts = { ...allPosts, [game]: [...posts, newPost] };
         setAllPosts(updatedPosts);
@@ -53,6 +67,33 @@ const GamePage = () => {
         setAllPosts(updatedPosts);
         localStorage.setItem('allPosts', JSON.stringify(updatedPosts));
     };
+
+    const handleFilterChange = (event) => {
+        setFilter(event.target.value);
+        setFilterValue(''); // Reset filter value when filter type changes
+    };
+
+    const handleFilterValueChange = (event) => {
+        setFilterValue(event.target.value);
+    };
+
+    const getFilteredPosts = () => {
+        let filtered = posts;
+
+        if (filter && filterValue) {
+            if (filter === 'status') {
+                filtered = posts.filter(post => post.status === filterValue);
+            }
+        }
+
+        if (filter === 'date') {
+            filtered.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date, newest first
+        }
+
+        return filtered;
+    };
+
+    const filteredPosts = getFilteredPosts();
 
     return (
         <div>
@@ -91,18 +132,48 @@ const GamePage = () => {
                                 <option value={32}>32</option>
                             </select>
                         </label>
+                        <label>
+                            Status:
+                            <select
+                                value={newPostStatus}
+                                onChange={(e) => setNewPostStatus(e.target.value)}
+                            >
+                                <option value="Open">Open</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                        </label>
                         <button onClick={handleAddPost}>Add Post</button>
                     </div>
                 )}
+                <div className={styles.filter}>
+                    <label>
+                        Filter By:
+                        <select value={filter} onChange={handleFilterChange}>
+                            <option value="">None</option>
+                            <option value="status">Status</option>
+                            <option value="date">Date</option>
+                        </select>
+                    </label>
+                    {filter && filter === 'status' && (
+                        <select value={filterValue} onChange={handleFilterValueChange}>
+                            <option value="">Select Status</option>
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    )}
+                </div>
                 <div className={styles.posts}>
                     <h2>Posts</h2>
-                    {posts.map(post => (
+                    {filteredPosts.map(post => (
                         <div key={post.id} className={styles.post}>
                             <Link href={`/pages/forums/${game}/posts/${post.id}`} legacyBehavior>
                                 <a className={styles.postLink}>
                                     <h3>{post.title}</h3>
                                     <p>{post.content}</p>
                                     <p>Participants: {post.participants}/{post.maxParticipants}</p>
+                                    <p>Status: {post.status}</p>
+                                    <p>Date: {post.date}</p>
+                                    <p>User: {post.user}</p> {/* Display User */}
                                 </a>
                             </Link>
                         </div>

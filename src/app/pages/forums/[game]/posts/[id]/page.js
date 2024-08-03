@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Navbar from '../../../../../../../components/Navbar'; // Adjust the path as necessary
 import TournamentTree from '../../../../../../../components/TournamentTree'; // Adjust the path as necessary
 import CommentsSection from '../../../../../../../components/CommentsSection'; // Adjust the path as necessary
+import styles from './page.module.css'; // Import CSS module
 
 const PostPage = () => {
     const params = useParams();
@@ -15,8 +16,10 @@ const PostPage = () => {
     const [allPosts, setAllPosts] = useState({});
     const [post, setPost] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
+    const [showJoinRequests, setShowJoinRequests] = useState(false);
     const [newTournamentSize, setNewTournamentSize] = useState(8);
     const [newPlayerNames, setNewPlayerNames] = useState([]);
+    const [joinRequests, setJoinRequests] = useState([]);
 
     useEffect(() => {
         // Retrieve posts from localStorage or any other storage mechanism
@@ -29,19 +32,24 @@ const PostPage = () => {
         if (foundPost) {
             setPost(foundPost);
             setNewTournamentSize(foundPost.maxParticipants); // Set initial tournament size
-            setNewPlayerNames(foundPost.playerNames || []); // Set initial player names
+            setNewPlayerNames(foundPost.playerNames || Array(foundPost.maxParticipants).fill('')); // Set initial player names
+            setJoinRequests(foundPost.joinRequests || []); // Set initial join requests
         }
     }, [id, game]);
 
     const handleJoinTournament = () => {
-        if (post.participants < post.maxParticipants) {
-            const updatedPost = { ...post, participants: post.participants + 1 };
+        if (joinRequests.length < post.maxParticipants) {
+            const randomName = `Player${Math.floor(Math.random() * 1000)}`;
+            const updatedJoinRequests = [...joinRequests, randomName];
+
+            const updatedPost = { ...post, joinRequests: updatedJoinRequests };
             const updatedPosts = {
                 ...allPosts,
                 [game]: allPosts[game].map(p => (p.id === post.id ? updatedPost : p))
             };
             setAllPosts(updatedPosts);
             setPost(updatedPost);
+            setJoinRequests(updatedJoinRequests);
             localStorage.setItem('allPosts', JSON.stringify(updatedPosts));
         }
     };
@@ -64,6 +72,22 @@ const PostPage = () => {
         setNewPlayerNames(updatedNames);
     };
 
+    const handlePlayerRemove = (index) => {
+        if (newPlayerNames[index]) {
+            const updatedNames = [...newPlayerNames];
+            updatedNames[index] = '';
+            const updatedPost = { ...post, participants: post.participants - 1, playerNames: updatedNames };
+            const updatedPosts = {
+                ...allPosts,
+                [game]: allPosts[game].map(p => (p.id === post.id ? updatedPost : p))
+            };
+            setAllPosts(updatedPosts);
+            setPost(updatedPost);
+            setNewPlayerNames(updatedNames);
+            localStorage.setItem('allPosts', JSON.stringify(updatedPosts));
+        }
+    };
+
     const handleDeleteTournament = () => {
         if (window.confirm("Are you sure you want to delete this tournament?")) {
             const updatedPosts = {
@@ -74,6 +98,45 @@ const PostPage = () => {
             localStorage.setItem('allPosts', JSON.stringify(updatedPosts));
             router.push(`/pages/forums/${game}`);
         }
+    };
+
+    const handleAcceptRequest = (index) => {
+        if (joinRequests[index] && newPlayerNames.filter(name => name).length < post.maxParticipants) {
+            const updatedNames = [...newPlayerNames];
+            const emptyIndex = updatedNames.findIndex(name => !name || name.startsWith('Seed'));
+            if (emptyIndex !== -1) {
+                updatedNames[emptyIndex] = joinRequests[index];
+            }
+
+            const updatedJoinRequests = [...joinRequests];
+            updatedJoinRequests.splice(index, 1);
+
+            const updatedPost = { ...post, joinRequests: updatedJoinRequests, playerNames: updatedNames, participants: updatedNames.filter(name => name).length };
+            const updatedPosts = {
+                ...allPosts,
+                [game]: allPosts[game].map(p => (p.id === post.id ? updatedPost : p))
+            };
+            setAllPosts(updatedPosts);
+            setPost(updatedPost);
+            setNewPlayerNames(updatedNames);
+            setJoinRequests(updatedJoinRequests);
+            localStorage.setItem('allPosts', JSON.stringify(updatedPosts));
+        }
+    };
+
+    const handleRejectRequest = (index) => {
+        const updatedJoinRequests = [...joinRequests];
+        updatedJoinRequests.splice(index, 1);
+
+        const updatedPost = { ...post, joinRequests: updatedJoinRequests };
+        const updatedPosts = {
+            ...allPosts,
+            [game]: allPosts[game].map(p => (p.id === post.id ? updatedPost : p))
+        };
+        setAllPosts(updatedPosts);
+        setPost(updatedPost);
+        setJoinRequests(updatedJoinRequests);
+        localStorage.setItem('allPosts', JSON.stringify(updatedPosts));
     };
 
     if (!post) {
@@ -103,33 +166,58 @@ const PostPage = () => {
                 <h1>Welcome to {post.title} post</h1>
                 <p>{post.content}</p>
                 <p>Participants: {post.participants}/{post.maxParticipants}</p>
-                <button onClick={handleJoinTournament} disabled={post.participants >= post.maxParticipants}>
-                    Join Tournament
-                </button>
-                {isEditing ? (
-                    <div>
-                        <label>
-                            Tournament Size:
-                            <select
-                                value={newTournamentSize}
-                                onChange={(e) => setNewTournamentSize(parseInt(e.target.value))}
-                            >
-                                <option value={4}>4</option>
-                                <option value={8}>8</option>
-                                <option value={16}>16</option>
-                                <option value={32}>32</option>
-                            </select>
-                        </label>
-                        <button onClick={handleTournamentEdit}>Save</button>
+                <div className={styles.buttonContainer}>
+                    <button onClick={handleJoinTournament} disabled={joinRequests.length >= post.maxParticipants}>
+                        Join Tournament
+                    </button>
+                    <button onClick={() => setShowJoinRequests(!showJoinRequests)}>
+                        Join Requests
+                    </button>
+                    {isEditing ? (
+                        <div className={styles.editContainer}>
+                            <label>
+                                Tournament Size:
+                                <select
+                                    value={newTournamentSize}
+                                    onChange={(e) => setNewTournamentSize(parseInt(e.target.value))}
+                                >
+                                    <option value={4}>4</option>
+                                    <option value={8}>8</option>
+                                    <option value={16}>16</option>
+                                    <option value={32}>32</option>
+                                </select>
+                            </label>
+                            <button onClick={handleTournamentEdit}>
+                                Save
+                            </button>
+                        </div>
+                    ) : (
+                        <button onClick={() => setIsEditing(true)}>
+                            Edit Tournament
+                        </button>
+                    )}
+                </div>
+                {showJoinRequests && (
+                    <div className={styles.joinRequests}>
+                        <div className={styles.joinRequestsBox}>
+                            {joinRequests.map((request, index) => (
+                                <div key={index} className={styles.requestItem}>
+                                    <p className={styles.requestName}>{request}</p>
+                                    <div className={styles.requestButtons}>
+                                        <button className={styles.acceptButton} onClick={() => handleAcceptRequest(index)}>V</button>
+                                        <button className={styles.rejectButton} onClick={() => handleRejectRequest(index)}>X</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                ) : (
-                    <button onClick={() => setIsEditing(true)}>Edit Tournament</button>
                 )}
                 <TournamentTree
                     initialParticipants={post.maxParticipants || 8}
                     playerNames={newPlayerNames.length ? newPlayerNames : post.playerNames || []}
                     isEditing={isEditing}
                     onPlayerNameChange={handlePlayerNameChange}
+                    onPlayerRemove={handlePlayerRemove}
                 />
                 <button onClick={handleDeleteTournament} style={{ marginTop: '1rem', backgroundColor: 'red', color: 'white' }}>
                     Delete Tournament

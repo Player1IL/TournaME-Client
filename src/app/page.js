@@ -5,24 +5,11 @@ import styles from './Home.module.css'; // Adjust the path as necessary
 
 const Home = () => {
     const boxes = [
-        { title: 'Just Chatting', viewers: '169K viewers', tags: ['IRL'] },
-        { title: 'VALORANT', viewers: '300K viewers', tags: ['FPS', 'Shooter'] },
-        { title: 'League of Legends', viewers: '94K viewers', tags: ['RPG', 'Strategy'] },
-        { title: 'Marvel Rivals', viewers: '8.2K viewers', tags: ['Shooter', 'Strategy'] },
-        { title: 'Grand Theft Auto V', viewers: '85K viewers', tags: ['FPS', 'Shooter'] },
-        { title: 'Fortnite', viewers: '30.2K viewers', tags: ['Shooter', 'RPG'] },
-        { title: 'Counter-Strike', viewers: '66.1K viewers', tags: ['FPS', 'Shooter'] },
-        { title: 'PUBG: BATTLEGROUNDS', viewers: '12.7K viewers', tags: ['FPS', 'Shooter'] },
-        { title: 'Minecraft', viewers: '15.6K viewers', tags: ['Simulation'] },
-        { title: 'Path of Exile', viewers: '', tags: [] },
-        { title: 'ELDEN RING', viewers: '', tags: [] },
-        { title: 'Rust', viewers: '', tags: [] },
-        { title: 'Call of Duty: Warzone', viewers: '', tags: [] },
-        { title: 'Overwatch 2', viewers: '', tags: [] },
-        { title: 'Dota 2', viewers: '', tags: [] },
-        { title: 'Tom Clancy\'s Rainbow Six Siege', viewers: '', tags: [] },
-        { title: 'ROBLOX', viewers: '', tags: [] },
-        { title: 'Dead by Daylight', viewers: '', tags: [] }
+        { title: 'VALORANT', tags: ['FPS', 'Shooter'] },
+        { title: 'League of Legends', tags: ['RPG', 'Strategy'] },
+        { title: 'Fortnite', tags: ['Shooter', 'RPG'] },
+        { title: 'Counter-Strike', tags: ['FPS', 'Shooter'] },
+        { title: 'PUBG: BATTLEGROUNDS', tags: ['FPS', 'Shooter'] },
     ];
 
     return (

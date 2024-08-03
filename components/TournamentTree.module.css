@@ -1,57 +1,77 @@
-.treeContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.tree {
+.tournamentTree {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
     width: 100%;
-    overflow-x: auto;
 }
 
 .round {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 1rem;
-    position: relative;
+    width: 150px;
 }
 
 .match {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 4rem; /* Increase margin for more space */
-    position: relative;
-}
-
-.participant {
-    background-color: #e0e0e0;
-    padding: 0.5rem;
-    margin: 0.25rem 0;
-    text-align: center;
-    width: 150px;
-    border-radius: 5px;
-    position: relative;
-}
-
-.participantInput {
+    margin: 20px 0;
     width: 100%;
-    box-sizing: border-box;
-    border: none;
-    background: transparent;
-    text-align: center;
 }
 
-.champion {
-    background-color: #ffeb3b;
-    padding: 0.5rem;
-    margin-top: 1rem;
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.playerInput {
+    width: 120px;
+    padding: 5px;
+}
+
+.playerSelect {
+    width: 120px;
+    padding: 5px;
+}
+
+.removeButton, .editButton {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+.removeButton {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editButton {
+    background-color: yellow;
+    color: black;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerName {
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 120px;
     text-align: center;
-    width: 150px;
-    border-radius: 5px;
+    border: 1px solid #ccc;
 }
