@@ -1,8 +1,7 @@
-// src/app/page.js
 import Head from 'next/head';
-import Navbar from '../../components/Navbar'; // Adjusted path
+import Navbar from '../../components/Navbar'; // Adjust the path as necessary
 import Link from 'next/link';
-import styles from './Home.module.css'; // Create a CSS module for the Home page
+import styles from './Home.module.css'; // Adjust the path as necessary
 
 const Home = () => {
     const boxes = [
@@ -38,7 +37,7 @@ const Home = () => {
                 <h1>Home</h1>
                 <div className={styles.grid}>
                     {boxes.map((box, index) => (
-                        <Link key={index} href={`/pages/forums/${box.title.replace(/\s+/g, '-').toLowerCase()}`} passHref>
+                        <Link key={index} href={`pages/forums/${box.title.replace(/\s+/g, '-').toLowerCase()}`} legacyBehavior>
                             <div className={styles.box}>
                                 <h2 className={styles.boxTitle}>{box.title}</h2>
                                 <p className={styles.boxViewers}>{box.viewers}</p>

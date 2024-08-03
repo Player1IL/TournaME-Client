@@ -3,13 +3,14 @@
 
 import { useState } from 'react';
 import Head from 'next/head';
-import Navbar from '../../../../components/Navbar';
+import Navbar from '../../../../components/Navbar'; // Adjust the path as necessary
 import styles from './Personal.module.css';
 import AccountInfo from './settings/account-info';
 import ChangePassword from './settings/change-password';
 import Followers from './settings/followers';
 import Activity from './settings/activity';
 import FriendList from './settings/friend-list';
+import DeleteAccount from './settings/delete-account';
 
 const Personal = () => {
     const [selectedSection, setSelectedSection] = useState('account-info');
@@ -65,6 +66,14 @@ const Personal = () => {
                                 Friend List
                             </a>
                         </li>
+                        <li>
+                            <a
+                                className={styles.sidebarLink}
+                                onClick={() => setSelectedSection('delete-account')}
+                            >
+                                Delete Account
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -74,6 +83,7 @@ const Personal = () => {
                     {selectedSection === 'followers' && <Followers />}
                     {selectedSection === 'activity' && <Activity />}
                     {selectedSection === 'friend-list' && <FriendList />}
+                    {selectedSection === 'delete-account' && <DeleteAccount />}
                 </main>
             </div>
         </div>

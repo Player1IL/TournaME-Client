@@ -1,0 +1,57 @@
+.treeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.tree {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+    position: relative;
+}
+
+.match {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem; /* Increase margin for more space */
+    position: relative;
+}
+
+.participant {
+    background-color: #e0e0e0;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    text-align: center;
+    width: 150px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.participantInput {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+.champion {
+    background-color: #ffeb3b;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 150px;
+    border-radius: 5px;
+}
