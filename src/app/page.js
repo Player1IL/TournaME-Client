@@ -11,7 +11,6 @@ const Home = () => {
         { title: 'Counter-Strike', tags: ['FPS', 'Shooter'] },
         { title: 'PUBG: BATTLEGROUNDS', tags: ['FPS', 'Shooter'] },
     ];
-=======
 import Navbar from './components/Navbar';
 import styles from './components/Home.module.css';
 
