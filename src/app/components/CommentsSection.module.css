@@ -1,0 +1,81 @@
+.commentsSection {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.newComment, .newReply {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.newComment textarea, .newReply textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.newComment button, .newReply button {
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newComment button:hover, .newReply button:hover {
+    background-color: #0056b3;
+}
+
+.comment {
+    margin-bottom: 1rem;
+}
+
+.commentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.replyButton {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.replyButton:hover {
+    color: #0056b3;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.time {
+    font-style: italic;
+}
+
+.content {
+    margin: 0.5rem 0;
+}
+
+.replies {
+    margin-left: 1rem;
+    border-left: 2px solid #ddd;
+    padding-left: 1rem;
+}

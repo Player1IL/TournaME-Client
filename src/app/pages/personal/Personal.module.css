@@ -1,0 +1,38 @@
+/* src/app/pages/personal/Personal.module.css */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    position: fixed; /* Fix the sidebar on the left side */
+    height: 100%;
+}
+
+.sidebarLinks {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebarLinks li {
+    margin: 1rem 0;
+}
+
+.sidebarLink {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebarLink:hover {
+    text-decoration: underline;
+}
+
+.mainContent {
+    margin-left: 220px; /* Add margin to account for the sidebar */
+    padding: 1rem;
+    flex: 1; /* Ensure the content takes up the remaining space */
+}

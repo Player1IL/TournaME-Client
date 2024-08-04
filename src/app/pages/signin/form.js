@@ -13,6 +13,12 @@ export default function Form() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
+        const response = await signIn('credentials', {
+            username: formData.get("username"),
+            password: formData.get("password"),
+            redirect: router.push('../'),
+        });
+
         /*
         Change fetch accordingly:
             Local: http://localhost:3124/signin
