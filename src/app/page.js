@@ -11,6 +11,9 @@ const Home = () => {
         { title: 'Counter-Strike', tags: ['FPS', 'Shooter'] },
         { title: 'PUBG: BATTLEGROUNDS', tags: ['FPS', 'Shooter'] },
     ];
+=======
+import Navbar from './components/Navbar';
+import styles from './components/Home.module.css';
 
     return (
         <div>
@@ -38,6 +41,14 @@ const Home = () => {
                     ))}
                 </div>
             </div>
+            <main className={styles.main}>
+                <h1 className={styles.title}>
+                    Welcome to TournaME
+                </h1>
+                <p className={styles.description}>
+                    Create and Join tournaments of your favorite games and interact with millions of users
+                </p>
+            </main>
         </div>
     );
 };

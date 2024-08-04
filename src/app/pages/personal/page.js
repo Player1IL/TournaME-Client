@@ -14,7 +14,7 @@ import DeleteAccount from './settings/delete-account';
 
 const Personal = () => {
     const [selectedSection, setSelectedSection] = useState('account-info');
-
+import Navbar from '../../components/Navbar';
     return (
         <div>
             <Head>

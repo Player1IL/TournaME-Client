@@ -1,10 +1,5 @@
-import {hash} from "bcrypt";
-
-export async function validatePasswords(password, passwordRepeat) {
-    if (password === passwordRepeat) {
-        return await hash(password, 10)
-    }
-    return false
+export function validatePasswords(password, passwordRepeat) {
+    return password === passwordRepeat;
 }
 export function validateDob(dob) {
     const dobF = new Date(dob);
