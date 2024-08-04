@@ -1,6 +1,6 @@
 // src/app/pages/personal/settings/friends-list.js
 import React from 'react';
-import FriendCard from '../../../../../components/FriendCard';
+import FriendCard from 'src/app/components/FriendCard';
 import { Container, Typography, Grid, Paper } from '@mui/material';
 
 // Sample data

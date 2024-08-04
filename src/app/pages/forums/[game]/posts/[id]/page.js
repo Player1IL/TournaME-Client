@@ -3,9 +3,9 @@
 import { useParams, useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Navbar from '../../../../../../../components/Navbar'; // Adjust the path as necessary
-import TournamentTree from '../../../../../../../components/TournamentTree'; // Adjust the path as necessary
-import CommentsSection from '../../../../../../../components/CommentsSection'; // Adjust the path as necessary
+import Navbar from 'src/app/components/Navbar'; // Adjust the path as necessary
+import TournamentTree from 'src/app/components/TournamentTree'; // Adjust the path as necessary
+import CommentsSection from 'src/app/components/CommentsSection'; // Adjust the path as necessary
 import styles from './page.module.css'; // Import CSS module
 
 const PostPage = () => {

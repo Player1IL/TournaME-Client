@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import Head from 'next/head';
-import Navbar from '../../../../components/Navbar'; // Adjust the path as necessary
+import Navbar from 'src/app/components/Navbar'; // Adjust the path as necessary
 import styles from './Personal.module.css';
 import AccountInfo from './settings/account-info';
 import ChangePassword from './settings/change-password';

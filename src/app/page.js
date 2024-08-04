@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navbar from '../../components/Navbar'; // Adjust the path as necessary
+import Navbar from 'src/app/components/Navbar'; // Adjust the path as necessary
 import Link from 'next/link';
 import styles from './Home.module.css'; // Adjust the path as necessary
 
