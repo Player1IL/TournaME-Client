@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Navbar from 'src/app/components/Navbar'; // Adjust the path as necessary
 import Link from 'next/link';
-//import styles from './Home.module.css'; // Adjust the path as necessary
+import styles from './Home.module.css'; // Adjust the path as necessary
 //import Navbar from './components/Navbar';
-import styles from './components/Home.module.css';
+//import styles from './components/Home.module.css';
 
 const Home = () => {
     const boxes = [
@@ -40,14 +40,6 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-            <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Welcome to TournaME
-                </h1>
-                <p className={styles.description}>
-                    Create and Join tournaments of your favorite games and interact with millions of users
-                </p>
-            </main>
         </div>
     );
 };
