@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./page.module.css";
 import {useRouter} from "next/navigation";
 import {validateDob, validateEmail, validatePasswords} from "../../utils/validation";
+import {IP} from "../../../app_const";
 
 export default function Form() {
     const router = useRouter();
@@ -50,7 +51,7 @@ export default function Form() {
                 Deploy: https://tourname.onrender.com/signup
                 Dev: https://tourname-server-side-dev.onrender.com/signup
             */
-            const response = await fetch("https://tourname-server-side-dev.onrender.com/signup", {
+            const response = await fetch(IP + '/signup', {
                 method: 'POST',
                 body: JSON.stringify({
                     email: email,
