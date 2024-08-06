@@ -4,8 +4,10 @@ import styles from "./page.module.css";
 import {useRouter} from "next/navigation";
 import {signIn} from "next-auth/react";
 import {useState} from "react";
+import {IP} from "../../../app_const";
 
 export default function Form() {
+
 
     //const [resName, setResName] = useState(null);
 
@@ -27,7 +29,7 @@ export default function Form() {
             Deploy: https://tourname.onrender.com/signin
             Dev: https://tourname-server-side-dev.onrender.com/signin
         */
-        const response = await fetch('https://tourname-server-side-dev.onrender.com/signin', {
+        const response = await fetch(IP + '/signin', {
             method: 'POST',
             body: JSON.stringify({
                 email: formData.get("email"),
