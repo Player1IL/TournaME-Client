@@ -10,9 +10,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 If we're running the project locally we need to modifiy our fetch endpoints acording to the comments in the following files:
 
-/src/app/pages/signin/form.js - Line 30
+/src/app/pages/signin/form.js
 
-/src/app/pages/signup/form.js - Line 53
+/src/app/pages/signup/form.js
+
+You will see all available endpoints, choose the one for local, if your port number is different also change accordingly
 
 First, run the server:
 
