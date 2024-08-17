@@ -45,7 +45,6 @@ const Home = () => {
                 >
                     <div className="container">
                         <div className="hero__text">
-                            <p>Let's compete in your games</p>
                             <a href="#" className="hero__button">
                                 <span>Compete Now</span>
                                 <i className="fa fa-angle-right"></i>
