@@ -29,7 +29,8 @@ export default function Form() {
             alert('Incorrect Email or password');
             setIsSignedIn(false);
         } else if (response.status === 200) {
-            setIsSignedIn(true);
+            const userData = await response.json(); // Assuming the response contains user data
+            loginUser(userData);
             router.push('../');
         }
     };

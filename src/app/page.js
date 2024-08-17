@@ -41,18 +41,10 @@ const Home = () => {
                     className="hero__items"
                     style={{
                         backgroundImage: `url('/img/normal-breadcrumb.jpg')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        height: '500px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        position: 'relative'
                     }}
                 >
                     <div className="container">
                         <div className="hero__text">
-                            <span className="hero__category">Adventure</span>
-                            <h2>TournaME - The biggest tournament site for gamers!</h2>
                             <p>Let's compete in your games</p>
                             <a href="#" className="hero__button">
                                 <span>Compete Now</span>
