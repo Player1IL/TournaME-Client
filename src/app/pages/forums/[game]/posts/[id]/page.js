@@ -162,10 +162,10 @@ const PostPage = () => {
 
             <Navbar />
 
-            <div style={{ padding: '2rem' }}>
-                <h1>Welcome to {post.title} post</h1>
-                <p>{post.content}</p>
-                <p>Participants: {post.participants}/{post.maxParticipants}</p>
+            <div style={{ padding: '2rem'}}>
+                <h1 style={{ color: 'white' }} >Welcome to {post.title} post</h1>
+                <p style={{ color: 'white' }}>{post.content}</p>
+                <p style={{ color: 'white' }}>Participants: {post.participants}/{post.maxParticipants}</p>
                 <div className={styles.buttonContainer}>
                     <button onClick={handleJoinTournament} disabled={joinRequests.length >= post.maxParticipants}>
                         Join Tournament

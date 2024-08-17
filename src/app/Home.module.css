@@ -1,49 +1,115 @@
-/* src/app/home/Home.module.css */
+
+
 .container {
-    padding: 2rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
 }
 
-.grid {
+.gamesSection {
+    margin-top: 20px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
-.box {
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+.gameBox {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
     text-decoration: none;
-    color: inherit;
-    cursor: pointer; /* Added cursor pointer for better UX */
+    color: black;
+    width: 100%;
 }
 
-.box:hover {
-    transform: translateY(-5px);
+.gameBox img {
+    width: 100%;
+    height: auto;
 }
 
-.boxTitle {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+.gameBox h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
 }
 
-.boxViewers {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.tags {
+.gameBox .tags {
     margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
-.tag {
-    background-color: #e0e0e0;
-    border-radius: 4px;
+.gameBox .tag {
+    display: inline-block;
+    background-color: #eee;
+    color: #333;
+    border-radius: 5px;
     padding: 0.2rem 0.5rem;
     font-size: 0.8rem;
-    margin-right: 0.5rem;
-    display: inline-block;
 }
+
+.gameBox:hover {
+    transform: scale(1.05);
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: left;
+    padding: 20px;
+}
+
+.hero__text {
+    max-width: 600px;
+}
+
+.hero__category {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.hero__button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff4500;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.hero__button i {
+    margin-left: 10px;
+}
+
+.hero__button:hover {
+    background-color: #ff5722;
+}
+
