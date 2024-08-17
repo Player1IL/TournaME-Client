@@ -1,34 +1,37 @@
-// components/Navbar.js
+import React from 'react';
 import Link from 'next/link';
-import styles from './Navbar.module.css';
 
-const Navbar = () => {
+const Navbar = ({ isSignedIn = false }) => { // Default isSignedIn to false (guest)
     return (
-        <nav className={styles.navbar}>
-            <ul className={styles.navLinks}>
-                <li>
-                    <Link href="/" className={styles.navLink}>
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/pages/signin" className={styles.navLink}>
-                        Sign-in
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/pages/about" className={styles.navLink}>
-                        About
-                    </Link>
-                </li>
+        <header className="header">
+            <div className="container">
+                <div className="header__content" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div className="header__logo">
+                        <Link href="/">
+                            <img src="/img/logo.png" alt="Logo" style={{ width: '150px', height: 'auto' }} />
+                        </Link>
+                    </div>
+                    <nav className="header__menu mobile-menu">
+                        <ul style={{display: 'flex', alignItems: 'center'}}>
+                            <li><Link href="/">Homepage</Link></li>
 
-                <li>
-                    <Link href="/pages/personal" className={styles.navLink}>
-                        Personal Area
-                    </Link>
-                </li>
-            </ul>
-        </nav>
+                            {isSignedIn ? (
+                                <>
+                                    <li><Link href="/pages/personal">Personal Area</Link></li>
+                                </>
+                            ) : (
+                                <>
+                                    <li><Link href="/pages/signup">Sign Up</Link></li>
+                                    <li><Link href="/pages/signin">Login</Link></li>
+                                </>
+
+                            )}
+                            <li><Link href="/pages/about">About</Link></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
     );
 };
 

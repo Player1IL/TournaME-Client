@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+    background-color: white; /* Set the background to white */
+    padding: 20px; /* Optional: add padding for spacing */
+    border-radius: 8px; /* Optional: add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .round {

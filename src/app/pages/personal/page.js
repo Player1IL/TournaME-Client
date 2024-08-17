@@ -11,10 +11,11 @@ import Followers from './settings/followers';
 import Activity from './settings/activity';
 import FriendList from './settings/friend-list';
 import DeleteAccount from './settings/delete-account';
+//import Navbar from '../../components/Navbar';
 
 const Personal = () => {
     const [selectedSection, setSelectedSection] = useState('account-info');
-import Navbar from '../../components/Navbar';
+
     return (
         <div>
             <Head>

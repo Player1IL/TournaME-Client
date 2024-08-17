@@ -1,3 +1,12 @@
+/* Ensure the entire content area has a white background */
+.postPageContainer {
+    padding: 2rem;
+    background-color: #ffffff; /* Set background to white */
+    border-radius: 8px; /* Optional: Add some border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
+}
+
+/* Additional styles for other elements */
 .buttonContainer {
     display: flex;
     align-items: center;
