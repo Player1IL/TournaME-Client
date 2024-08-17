@@ -1,6 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import path from 'path';
 
+export default {
+    webpack: config => {
+        config.resolve.modules.push(path.resolve('./'));
 
-
-export default nextConfig;
+        return config;
+    }
+};

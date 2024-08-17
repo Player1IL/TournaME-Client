@@ -1,0 +1,67 @@
+/* Ensure the entire content area has a white background */
+.postPageContainer {
+    padding: 2rem;
+    background-color: #ffffff; /* Set background to white */
+    border-radius: 8px; /* Optional: Add some border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
+}
+
+/* Additional styles for other elements */
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between buttons */
+}
+
+.joinRequests {
+    margin-top: 1rem;
+    max-height: 100px; /* Set the height to 50% of the previous 200px */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 50%; /* Set the width to 50% */
+}
+
+.joinRequestsBox {
+    max-height: 75px; /* Set the inner box height accordingly */
+    overflow-y: auto;
+}
+
+.requestItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.requestName {
+    flex-grow: 1;
+}
+
+.requestButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.acceptButton, .rejectButton {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.acceptButton {
+    background-color: green;
+}
+
+.rejectButton {
+    background-color: red;
+}

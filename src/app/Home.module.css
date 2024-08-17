@@ -1,0 +1,115 @@
+
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.gamesSection {
+    margin-top: 20px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.gameBox {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
+.gameBox img {
+    width: 100%;
+    height: auto;
+}
+
+.gameBox h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.gameBox .tags {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.gameBox .tag {
+    display: inline-block;
+    background-color: #eee;
+    color: #333;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.gameBox:hover {
+    transform: scale(1.05);
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: left;
+    padding: 20px;
+}
+
+.hero__text {
+    max-width: 600px;
+}
+
+.hero__category {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.hero__button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff4500;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.hero__button i {
+    margin-left: 10px;
+}
+
+.hero__button:hover {
+    background-color: #ff5722;
+}
+

@@ -1,7 +1,17 @@
+/* src/app/pages/About.module.css */
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+    padding: 1em;
+}
+.container h1 {
+    margin-bottom: 1em;
+}
+
+.container p {
+    margin-bottom: 1em;
 }

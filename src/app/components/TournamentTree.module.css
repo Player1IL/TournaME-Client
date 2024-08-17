@@ -1,0 +1,81 @@
+.tournamentTree {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: white; /* Set the background to white */
+    padding: 20px; /* Optional: add padding for spacing */
+    border-radius: 8px; /* Optional: add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.match {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.playerInput {
+    width: 120px;
+    padding: 5px;
+}
+
+.playerSelect {
+    width: 120px;
+    padding: 5px;
+}
+
+.removeButton, .editButton {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+.removeButton {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editButton {
+    background-color: yellow;
+    color: black;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerName {
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 120px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
