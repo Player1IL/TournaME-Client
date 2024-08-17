@@ -34,7 +34,7 @@ const Home = () => {
                 <link rel="stylesheet" href="/styles/style.css" type="text/css" />
             </Head>
 
-            <Navbar isSignedIn={true}/>
+            <Navbar />
 
             <section className="hero">
                 <div
@@ -45,7 +45,6 @@ const Home = () => {
                 >
                     <div className="container">
                         <div className="hero__text">
-                            <p>Let's compete in your games</p>
                             <a href="#" className="hero__button">
                                 <span>Compete Now</span>
                                 <i className="fa fa-angle-right"></i>
