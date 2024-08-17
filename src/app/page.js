@@ -1,5 +1,6 @@
 ﻿import Head from 'next/head';
 import Link from 'next/link';
+
 import styles from './Home.module.css';
 import 'src/styles/style.css';
 import Navbar from 'src/app/components/Navbar';
@@ -18,7 +19,6 @@ const Home = () => {
         { title: 'Dota 2', tags: ['Strategy', 'MOBA'], img: '/img/games/dota2.jpg' },
         { title: 'Elden Ring', tags: ['RPG', 'Adventure'], img: '/img/games/elden.jpg' },
     ];
-
 
     return (
         <div>
