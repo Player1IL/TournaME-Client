@@ -16,8 +16,6 @@ export default function Form() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-
-
         const response = await fetch(IP + '/signin', {
             method: 'POST',
             body: JSON.stringify({
