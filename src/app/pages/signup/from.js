@@ -121,7 +121,7 @@ export default function Form() {
                                 <h3>Sign Up</h3>
                                 <form onSubmit={handleSubmit}>
                                     <div className="input__item">
-                                        <input type="email" id="email" name="email" placeholder="Email address" required />
+                                        <input type="email" id="email" name="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Email address" required />
                                         <span className="icon_mail"></span>
                                     </div>
                                     <div className="input__item">
@@ -129,7 +129,7 @@ export default function Form() {
                                         <span className="icon_profile"></span>
                                     </div>
                                     <div className="input__item">
-                                        <input type="password" id="password" name="password" placeholder="Password" required />
+                                        <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required />
                                         <span className="icon_lock"></span>
                                     </div>
                                     <div className="input__item">
