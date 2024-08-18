@@ -8,13 +8,7 @@ Stable version of the website can be found on this render link: https://tourname
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-If we're running the project locally we need to modifiy our fetch endpoints acording to the comments in the following files:
-
-/src/app/pages/signin/form.js
-
-/src/app/pages/signup/form.js
-
-You will see all available endpoints, choose the one for local, if your port number is different also change accordingly
+Make sure to change the ip in src/app_const.js if you're running the server-side localy
 
 First, run the server:
 
