@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Navbar from 'src/app/components/Navbar.js'; // Adjust the path as necessary
 import styles from './GamePage.module.css'; // Import the CSS module
 import Link from 'next/link';
+import { IP } from '../../../../app_const';
 
 const GamePage = () => {
     const params = useParams();
@@ -20,11 +21,37 @@ const GamePage = () => {
     const [filter, setFilter] = useState('date'); // Default filter is 'date'
     const [filterValue, setFilterValue] = useState(''); // State for filter value
 
+        // useEffect(() => {
+        //     // Load posts from localStorage
+        //     const storedPosts = JSON.parse(localStorage.getItem('allPosts')) || {};
+        //     setAllPosts(storedPosts);
+        // }, []);
+
     useEffect(() => {
-        // Load posts from localStorage
-        const storedPosts = JSON.parse(localStorage.getItem('allPosts')) || {};
-        setAllPosts(storedPosts);
-    }, []);
+        const fetchPosts = async () => {
+            try {
+
+                const response = await fetch(IP + '/tournament/get/by-game',
+                    {
+                        method: 'POST',
+                        body: JSON.stringify({
+                        name: game
+                    }),
+                    headers: {
+                    'Content-Type': 'application/json',
+                }});
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(data);
+                    setAllPosts({ [game]: data });
+                }
+            } catch (error) {
+                console.error("Failed to fetch posts:", error);
+            }
+        };
+
+        fetchPosts();
+    }, [game]);
 
     const posts = allPosts[game] || [];
 
@@ -168,12 +195,12 @@ const GamePage = () => {
                         <div key={post.id} className={styles.post}>
                             <Link href={`/pages/forums/${game}/posts/${post.id}`} legacyBehavior>
                                 <a className={styles.postLink}>
-                                    <h3>{post.title}</h3>
-                                    <p>{post.content}</p>
-                                    <p>Participants: {post.participants}/{post.maxParticipants}</p>
+                                    <h3>{post.tournament_name}</h3>
+                                    <p>{post.tournament_description}</p>
+                                    <p>Participants: {post.maxParticipants}</p>
                                     <p>Status: {post.status}</p>
-                                    <p>Date: {post.date}</p>
-                                    <p>User: {post.user}</p> {/* Display User */}
+                                    <p>Date: {post.createAt}</p>
+                                    <p>User: {post.owner}</p> {/* Display User */}
                                 </a>
                             </Link>
                         </div>

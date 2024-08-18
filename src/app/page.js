@@ -34,7 +34,7 @@ const Home = () => {
                 <link rel="stylesheet" href="/styles/style.css" type="text/css" />
             </Head>
 
-            <Navbar isSignedIn={true}/>
+            <Navbar />
 
             <section className="hero">
                 <div

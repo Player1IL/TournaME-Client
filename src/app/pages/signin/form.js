@@ -1,14 +1,17 @@
 ﻿'use client';
 
 import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { IP } from '../../../app_const';
 import Navbar from 'src/app/components/Navbar'; // Import the Navbar component
 import 'src/styles/style.css';
+import {UserContext} from "src/app/UserContext";
 
 export default function Form() {
     const router = useRouter();
     const [isSignedIn, setIsSignedIn] = useState(false); // State to track signed-in status
+    const { loginUser } = useContext(UserContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

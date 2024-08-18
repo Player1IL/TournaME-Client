@@ -1,7 +1,8 @@
 "use client"; // This line makes the component a Client Component
 
 import { useParams, useRouter } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import { UserContext } from 'src/app/UserContext';
+import React, {useState, useEffect, useContext} from 'react';
 import Head from 'next/head';
 import Navbar from 'src/app/components/Navbar'; // Adjust the path as necessary
 import TournamentTree from 'src/app/components/TournamentTree'; // Adjust the path as necessary
@@ -12,6 +13,7 @@ const PostPage = () => {
     const params = useParams();
     const router = useRouter();
     const { id, game } = params;
+    const { user } = useContext(UserContext);
 
     const [allPosts, setAllPosts] = useState({});
     const [post, setPost] = useState(null);
@@ -38,9 +40,11 @@ const PostPage = () => {
     }, [id, game]);
 
     const handleJoinTournament = () => {
-        if (joinRequests.length < post.maxParticipants) {
-            const randomName = `Player${Math.floor(Math.random() * 1000)}`;
-            const updatedJoinRequests = [...joinRequests, randomName];
+        console.log(user[0].full_name);
+        if (user && joinRequests.length < post.maxParticipants) {
+            // const randomName = `Player${Math.floor(Math.random() * 1000)}`;
+            // const updatedJoinRequests = [...joinRequests, randomName];
+            const updatedJoinRequests = [...joinRequests, user[0].full_name];
 
             const updatedPost = { ...post, joinRequests: updatedJoinRequests };
             const updatedPosts = {
