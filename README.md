@@ -8,7 +8,7 @@ Stable version of the website can be found on this render link: https://tourname
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Make sure to change the 'IP' in src/app_const.js if you're running the server-side localy
+Make sure to change the 'IP' in src/app_const.js if you're running the server-side locally.
 
 First, run the server:
 
